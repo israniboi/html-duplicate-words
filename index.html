@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Duplicate Word Checker</title>
+  </head>
+  <body>
+    <h1>Duplicate Word Checker</h1>
+    <label for="paragraph">Enter a paragraph:</label>
+    <textarea id="paragraph" rows="10" cols="50"></textarea>
+    <br>
+    <button onclick="checkForDuplicates()">Check for duplicates</button>
+    <p id="result"></p>
+    <script>
+      function checkForDuplicates() {
+        const paragraph = document.getElementById("paragraph").value;
+        const words = paragraph.toLowerCase().match(/\b\w+\b/g);
+        const uniqueWords = new Set(words);
+        if (uniqueWords.size !== words.length) {
+          document.getElementById("result").textContent = "The paragraph contains duplicate words.";
+        } else {
+          document.getElementById("result").textContent = "The paragraph does not contain any duplicate words.";
+        }
+      }
+    </script>
+  </body>
+</html>
